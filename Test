@@ -1,0 +1,63 @@
+package cpalme15;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+/*
+ * Ragged arrays,ArrayList
+ */
+public class Test {
+
+	public static void main(String[] args)
+	
+	{	double sum=0.0;
+		Random rd=new Random();	
+		ArrayList<Double> Scores= new ArrayList<Double>(7);//7 is the capacity 
+		System.out.println(Scores.size());
+		for(int i=0;i<7;i++){
+		Scores.add(rd.nextInt(101)/10.0);
+		}
+		Scores.sort(null);
+		for(int i=1;i<Scores.size()-1;i++)
+		{
+			sum+=Scores.get(i);
+		}
+	
+	
+		for(Double score:Scores)
+		{
+			System.out.print(score +"\t");
+		}System.out.println();
+		if(Scores.contains(2.4))
+			System.out.println("congrats you suck");
+		else
+			System.out.println("You suck even more");
+		System.out.println(Scores.size());
+		Scores.set(4, Scores.get(4)+1.0);
+		Scores.remove(1);
+		System.out.println(Scores.size());
+		System.out.println(Scores.get(4));
+		System.out.println(sum);
+// in a ragged array we declare it like int[][] arr=int[4][]; only fill first
+		// because you dont know how many columns.
+		// arr[0]=new int[6] makes 6 columns in row 0;
+		int [][] arr=new int[4][];
+		arr[0]=new int[6];
+		arr[1]=new int[4];
+		arr[2]=new int[7];
+		arr[3]=new int[5];
+		
+			
+			for(int i=0;i<arr.length;i++)
+				for(int c=0;c<arr[i].length;c++)
+					arr[i][c]=rd.nextInt(101);
+		for(int[] row:arr)
+		{  for(int grade:row){
+			System.out.print(grade + "\t");
+		}System.out.println();}
+			
+		
+		
+	}
+
+}
